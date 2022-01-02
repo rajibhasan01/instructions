@@ -1,0 +1,10 @@
+npm cache clean -f
+
+
+sudo service mongod start
+sudo service mongod status
+sudo service mongod restart
+
+
+sudo npm install -g nodemon
+

@@ -1,0 +1,24 @@
+read directory and execute the files
+------------------------------------
+const fs = require("fs");
+const {exec} = require('child_process');
+const { stdout, stderr } = require("process");
+let directory = "dist";
+let dirBuf = Buffer.from(directory);
+// console.log(dirBuf);
+
+let files = fs.readdirSync(directory);
+files.forEach(file => {
+    exec(`node /home/rajibhasan/Desktop/test/OOP/dist/${file}`, (error, stdout, stderr)=>{
+        if(error){
+            console.log(`error: ${error.message}`);
+            return;
+        }
+
+        if(stderr){
+            console.log(`stderr: ${stderr}`);
+            return;
+        }
+        console.log(`stdout: ${stdout}`)
+    })
+});
